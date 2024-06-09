@@ -24,7 +24,7 @@ public class Main {
 
 
 
-        LocationDAO locationDAO = new LocationDAO();
+//        LocationDAO locationDAO = new LocationDAO();
 
 
         
