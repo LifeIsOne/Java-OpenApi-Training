@@ -44,5 +44,18 @@ public class LocationDAOTest {
         levelThree.forEach(System.out::println);
     }
 
+    @Test
+    public void FindingXY_test(){
+        // given
+        String levelTwo = "부산진구";
+        String levelThree = "부전제1동";
 
+        // when
+        LocationDAO dao = new LocationDAO(DBConnection.getConnection());
+        Map<String, String> coordinates  = dao.FindingXY(levelTwo, levelThree);
+
+
+        System.out.println("격자X : " + coordinates.get("격자X"));
+        System.out.println("격자Y : " + coordinates.get("격자Y"));
+    }
 }

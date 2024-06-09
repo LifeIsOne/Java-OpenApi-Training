@@ -85,5 +85,26 @@ public LocationDAO(Connection connection) {
 
     }
 
+    // 위경도 찾기
+    public Map<String, String> FindingXY(String levelTwo, String levelThree){
 
+        Map<String, String> result = new HashMap<>();
+
+        try {
+            PreparedStatement pstmt = connection.prepareStatement("SELECT 격자X, 격자Y FROM location_data_tb WHERE 2단계 = ? AND 3단계 = ?");
+            pstmt.setString(1, levelTwo);
+            pstmt.setString(2, levelThree);
+
+            ResultSet resultSet = pstmt.executeQuery();
+
+            if (resultSet.next()){
+                result.put("격자X", resultSet.getString("격자X"));
+                result.put("격자Y", resultSet.getString("격자Y"));
+            }
+            return result;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 }
