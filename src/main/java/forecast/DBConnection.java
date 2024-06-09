@@ -8,7 +8,7 @@ public class DBConnection {
     public static Connection getConnection(){
         String username = "root";
         String password = "1234";
-        String url = "jdbc:mariadb://127.0.0.1:3306/forecast_db";
+        String url = "jdbc:mysql://127.0.0.1:3306/forecast_db";
 
         try {
             Connection connection = DriverManager.getConnection(url, username, password);
